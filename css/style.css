@@ -1,0 +1,62 @@
+/* 为整个页面设置背景图片 */
+body {
+    background-image: url('../images/backg.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* 固定背景，不随页面滚动 */
+}
+
+/* 为头部导航栏设置背景图片 */
+.header {
+    background-image: url('../images/backg.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* 为整个轮播图部分设置背景图片 */
+.slider {
+    background-image: url('../images/backg.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* 为轮播图的每个幻灯片分别设置背景图片 */
+.w3layouts-banner-top1 {
+    background-image: url('../images/backg.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.w3layouts-banner-top2 {
+    background-image: url('../images/backg.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.w3layouts-banner-top3 {
+    background-image: url('../images/backg.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.w3layouts-banner-top4 {
+    background-image: url('../images/backg.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.w3layouts-banner-top5 {
+    background-image: url('../images/slide5.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* 可根据需要添加更多部分的背景图片 */
