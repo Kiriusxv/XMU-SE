@@ -1,6 +1,106 @@
+.custom-heading {
+    font-family: "Arial", sans-serif; /* 设置字体 */
+    color: #ffffff; /* 设置字体颜色为白色 */
+    background-color: #87CEEB; /* 设置背景颜色为天蓝色 */
+    padding: 5px 10px; /* 控制背景的大小，让它紧贴文字 */
+    display: inline-block; /* 让背景与文字大小一致 */
+    border-radius: 5px; /* 添加轻微圆角效果 */
+    text-align: left; /* 左对齐 */
+}
+
+.custom-heading a {
+    text-decoration: none; /* 去掉链接的下划线 */
+    color: #ffffff; /* 链接文字颜色为白色 */
+}
+
+.custom-heading a:hover {
+    color: #f0f0f0; /* 悬停时链接文字颜色稍微变亮 */
+}
+
+
+/* 导航栏整体样式 */
+.custom-nav {
+    text-align: center; /* 确保导航项居中对齐 */
+}
+
+.custom-nav li a:hover, 
+.custom-nav li a.active {
+    background-color: #3498db; /* 鼠标悬停或激活时的背景颜色 */
+    color: #fff;
+}
+
+/* 下拉菜单样式 */
+.custom-nav .dropdown-menu {
+    background-color: #3498db;
+    border-radius: 5px;
+    padding: 10px 0;
+    position: absolute;
+    top: 100%; /* 下拉菜单从导航项的下方显示 */
+    left: 0;
+    width: 150px; /* 设置下拉菜单的宽度 */
+    text-align: left;
+    display: none; /* 默认隐藏 */
+}
+
+.custom-nav .dropdown:hover .dropdown-menu {
+    display: block; /* 鼠标悬停时显示下拉菜单 */
+}
+
+.custom-nav .dropdown-menu li {
+    margin: 0; /* 去掉下拉菜单项的额外间距 */
+}
+
+.custom-nav .dropdown-menu li a {
+    padding: 10px 15px;
+    color: #fff;
+    background: none;
+    display: block;
+    text-align: left;
+}
+
+.custom-nav .dropdown-menu li a:hover {
+    background-color: #2980b9; /* 设置下拉菜单项悬停背景色 */
+}
+
+/* 调整整体布局，确保菜单项不重叠 */
+.custom-nav li a {
+    display: inline-block;
+    text-align: center;
+    white-space: nowrap; /* 避免菜单项折行 */
+}
+
+/* 确保下拉菜单和主菜单项之间有足够的距离 */
+.custom-nav li .dropdown-menu {
+    margin-top: 5px;
+}
+
+.custom-nav li {
+    display: inline-block; /* 保证导航项是横向排列 */
+    margin: 0 55px; /* 设置导航项之间的左右间距 */
+}
+
+
+.custom-nav li a {
+    background-color: #87CEEB; /* 天蓝色背景 */
+    color: #ffffff; /* 字体颜色为白色 */
+    font-weight: bold; /* 字体加粗 */
+    padding: 10px 15px; /* 调整内边距，使按键更美观 */
+    border-radius: 5px; /* 添加圆角效果 */
+    transition: none; /* 禁用过渡效果，悬停时不变色 */
+    text-decoration: none; /* 去除下划线 */
+}
+
+.custom-nav li a:hover, 
+.custom-nav li a.active {
+    background-color: #87CEEB; /* 鼠标悬停时保持背景颜色为天蓝色 */
+    color: #ffffff; /* 字体颜色保持为白色 */
+    text-decoration: none; /* 去除悬停时的下划线 */
+}
+
+
 /* 为整个页面设置背景图片 */
 body {
-    background-image: url('../images/backg.png');
+    background-image: url('../images/鲨鱼娘.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -9,7 +109,7 @@ body {
 
 /* 为头部导航栏设置背景图片 */
 .header {
-    background-image: url('../images/backg.png');
+    background-image: url('../images/guralongg.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -17,46 +117,29 @@ body {
 
 /* 为整个轮播图部分设置背景图片 */
 .slider {
-    background-image: url('../images/backg.png');
+    background-image: url('../images/back170.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+}
+/* 前景框 - 设置为白色半透明 */
+.w3layouts-banner-top1 {
+    padding: 20px; /* 内边距，确保内容不会紧贴边框 */
+    border-radius: 10px; /* 圆角效果，可选 */
+    max-width: 80%; /* 控制前景框的宽度 */
+    margin: 0 auto; /* 让框居中 */
+    position: relative;
+    z-index: 2; /* 确保前景内容在背景上方 */
 }
 
 /* 为轮播图的每个幻灯片分别设置背景图片 */
 .w3layouts-banner-top1 {
-    background-image: url('../images/backg.png');
+    background-image: url('../images/');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 }
 
-.w3layouts-banner-top2 {
-    background-image: url('../images/backg.png');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
 
-.w3layouts-banner-top3 {
-    background-image: url('../images/backg.png');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-
-.w3layouts-banner-top4 {
-    background-image: url('../images/backg.png');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-
-.w3layouts-banner-top5 {
-    background-image: url('../images/slide5.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
 
 /* 可根据需要添加更多部分的背景图片 */
