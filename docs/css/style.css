@@ -91,6 +91,29 @@
     background-color: #2980b9; /* 设置下拉菜单项悬停背景色 */
 }
 
+/* 列表项的样式 */
+#resource-links li {
+    background-color: #87CEEB; /* 天蓝色背景 */
+    color: #ffffff; /* 白色字体 */
+    padding: 10px; /* 内边距 */
+    margin-bottom: 5px; /* 每个列表项之间的间距 */
+    border-radius: 5px; /* 圆角效果 */
+    list-style-type: none; /* 去掉默认的项目符号 */
+    width: 300px; /* 设置固定宽度 */
+}
+
+/* 列表项中的链接样式 */
+#resource-links li a {
+    color: #ffffff; /* 链接文字颜色为白色 */
+    text-decoration: none; /* 去掉下划线 */
+}
+
+/* 当鼠标悬停在列表项上时 */
+#resource-links li a:hover {
+    text-decoration: underline; /* 悬停时显示下划线 */
+}
+
+
 /* 为整个页面设置背景图片 */
 body {
     background-image: url('../images/鲨鱼娘.jpg');
