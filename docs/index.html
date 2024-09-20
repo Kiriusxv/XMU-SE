@@ -1,109 +1,177 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>厦门大学软件工程资源库</title>
-<!-- Meta tag Keywords -->
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta charset="UTF-8">
-<meta name="keywords" content="厦大软工" />
-<link rel="stylesheet" href="css/bootstrap.css">
-<link rel="stylesheet" href="css/style.css" type="text/css" media="all" /> 
+    <title>厦门大学软件工程资源库</title>
+    <!-- Meta tag Keywords -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta name="keywords" content="厦大软工" />
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="all" /> 
+    <style>
+        /* 样式部分 */
+        .resource-list {
+            display: none;
+            margin-top: 20px;
+        }
+        .resource-list ul {
+            list-style-type: none;
+        }
+        .resource-list ul li {
+            margin: 10px 0;
+        }
+        .resource-list ul li a {
+            color: #3498db;
+            text-decoration: none;
+        }
+        .resource-list ul li a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 
 <body>
-<div class="header">
-	<nav class="navbar navbar-default">
-		<div class="navbar-header">
-			<!--<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-				<span class="sr-only">切换导航</span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-			</button>-->
-			<h1 class="custom-heading">
-				<a href="index.html">厦门大学软件工程资源库</a>
-			</h1>
-			
-		</div>
-		<div class="top-nav-text">
-			<ul class="social_agileinfo">
-				<li><a href="#" class="w3_facebook"><i class="fa fa-weixin"></i></a></li>
-				<li><a href="#" class="w3_twitter"><i class="fa fa-twitter"></i></a></li>
-				<li><a href="#" class="w3_instagram"><i class="fa fa-instagram"></i></a></li>
-				<li><a href="#" class="w3_google"><i class="fa fa-qq"></i></a></li>
-			</ul>
-		</div>
-		<!-- navbar-header -->
-		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-			<ul class="nav navbar-nav navbar-right custom-nav">
-				<li><a class="hvr-underline-from-center active" href="index.html">首页</a></li>
-				<li><a href="#about" class="hvr-underline-from-center scroll">通知公告</a></li>
-				
-				<!-- 下拉菜单 -->
-				<li class="dropdown">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown"><span data-hover="dropdown">课程资源</span><span class="caret"></span></a>
-					<ul class="dropdown-menu">
-						<li><a href="#packages" class="scroll"><span data-hover="Popular Packages">公共基本课程</span></a></li>
-						<li><a href="#offers" class="scroll"><span data-hover="Recent Trips">学科通修课程</span></a></li>
-					</ul>
-				</li>
-				<li><a href="#testimonials" class="hvr-underline-from-center scroll">数据库</a></li>
-				<li><a href="#services" class="hvr-underline-from-center scroll">转专业板块</a></li>
-				<li><a href="#team" class="hvr-underline-from-center scroll">关于</a></li>
-		
-				
-			</ul>
-		</div>
+    <div class="header">
+        <nav class="navbar navbar-default">
+            <div class="navbar-header">
+                <h1 class="custom-heading">
+                    <a href="index.html">厦门大学软件工程资源库</a>
+                </h1>
+            </div>
+            <div class="top-nav-text">
+                <ul class="social_agileinfo">
+                    <li><a href="#" class="w3_facebook"><i class="fa fa-weixin"></i></a></li>
+                    <li><a href="#" class="w3_twitter"><i class="fa fa-twitter"></i></a></li>
+                    <li><a href="#" class="w3_instagram"><i class="fa fa-instagram"></i></a></li>
+                    <li><a href="#" class="w3_google"><i class="fa fa-qq"></i></a></li>
+                </ul>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right custom-nav">
+                    <li><a class="hvr-underline-from-center active" href="index.html">首页</a></li>
+                    <li><a href="#notify" class="hvr-underline-from-center scroll">通知公告</a></li>
 
-		<div class="clearfix"> </div>	
-	</nav>
-</div>
-<section class="slider">
-	<div class="callbacks_container">
-		<ul class="rslides" id="slider">
-			<li>
-				<div class="w3layouts-banner-top w3layouts-banner-top1">
-					<div class="banner-dott">
-					<div class="container">
-						<div class="slider-info">
-								<h2>公告</h2>
-								<h4>测试</h4>
-								<div class="w3ls-button">
-									<a href="#" data-toggle="modal" data-target="#myModal">查看更多</a>
-								</div>
-								<div class="bannergrids">
-									<div class="col-md-4">
-										<div class="grid1">
-											<i class="fa fa-cloud" aria-hidden="true"></i>
-											<p>本仓为厦门大学软件工程系资源共享仓库</p>
-										</div>
-									</div>
-									<div class="col-md-4">
-										<div class="grid1">
-											<i class="fa fa-folder" aria-hidden="true"></i>
-											<p>所有资源由学生自主提供分享，严禁商用</p>
-										</div>
-									</div>
-									<div class="col-md-4">
-										<div class="grid1">
-											<i class="fa fa-gitlab" aria-hidden="true"></i>
-											<p>拒绝未经允许的使用、分发、传播</p>
-										</div>
-									</div>
-									<div class="clearfix"></div>
-								</div>
-						</div>
-					</div>
-					</div>
-				</div>
-			</li>
-			
-		</ul>
-	</div>
-	<div class="clearfix"></div>
-</section>
-	<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
-	<script type="text/javascript" src="js/bootstrap.js"></script>
-	<script src="js/myself.js"></script>
+                    <!-- 下拉菜单 -->
+                    <li class="dropdown">
+                        <a href="#" class="coursesourse" data-toggle="dropdown"><span data-hover="dropdown">课程资源</span><span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#" onclick="fetchResources('公共基本课程')">公共基本课程</a></li>
+                            <li><a href="#" onclick="fetchResources('学科通修课程')">学科通修课程</a></li>
+                            <li><a href="#" onclick="fetchResources('专业课程')">专业课程</a></li>
+                            <li><a href="#" onclick="fetchResources('院选课程')">院选课程</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#database" class="hvr-underline-from-center scroll">数据库</a></li>
+                    <li><a href="#paolu" class="hvr-underline-from-center scroll">转专业板块</a></li>
+                    <li><a href="#about" class="hvr-underline-from-center scroll">关于</a></li>
+                </ul>
+            </div>
+
+            <div class="clearfix"> </div>    
+        </nav>
+    </div>
+
+    <!-- 显示资源列表的区域 -->
+    <div class="container resource-list" id="resource-list">
+        <h2 id="resource-title"></h2>
+        <ul id="resource-links"></ul>
+    </div>
+
+    <section class="slider">
+        <div class="callbacks_container">
+            <ul class="rslides" id="slider">
+                <li>
+                    <div class="w3layouts-banner-top w3layouts-banner-top1">
+                        <div class="banner-dott">
+                            <div class="container">
+                                <div class="slider-info">
+                                    <h2>公告</h2>
+                                    <h4>测试</h4>
+                                    <div class="w3ls-button">
+                                        <a href="#" data-toggle="modal" data-target="#myModal">查看更多</a>
+                                    </div>
+                                    <div class="bannergrids">
+                                        <div class="col-md-4">
+                                            <ul class="custom-list">
+                                                <li>
+                                                    <i class="fa fa-cloud" aria-hidden="true"></i>
+                                                    <p>本仓为厦门大学软件工程系资源共享仓库</p>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <ul class="custom-list">
+                                                <li>
+                                                    <i class="fa fa-folder" aria-hidden="true"></i>
+                                                    <p>所有资源由学生自主提供分享，严禁商用</p>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <ul class="custom-list">
+                                                <li>
+                                                    <i class="fa fa-gitlab" aria-hidden="true"></i>
+                                                    <p>拒绝未经允许的使用、分发、传播</p>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="clearfix"></div>
+    </section>
+
+    <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.js"></script>
+    <script src="js/myself.js"></script>
+
+    <!-- 添加的 JavaScript -->
+    <script>
+        function fetchResources(course) {
+            const username = 'Kiriusxv'; // 替换为你的 GitHub 用户名
+            const repo = 'XMU-SE'; // 替换为你的 GitHub 仓库名
+            const path = 'resources/' + course; // 假设你有一个资源文件夹，根据课程动态生成路径
+
+            const apiURL = `https://api.github.com/repos/Kiriusxv/XMU-SE/contents/${path}`;
+
+            // 更新标题
+            document.getElementById('resource-title').innerText = `${course} 资源列表`;
+
+            // 清空现有资源列表
+            const resourceList = document.getElementById('resource-links');
+            resourceList.innerHTML = '';
+
+            // 获取 GitHub 上的文件列表
+            fetch(apiURL)
+                .then(response => response.json())
+                .then(data => {
+                    data.forEach(item => {
+                        if (item.type === 'file') {
+                            // 创建每个文件的下载链接
+                            const li = document.createElement('li');
+                            const link = document.createElement('a');
+                            link.href = item.download_url; // GitHub 的下载链接
+                            link.textContent = item.name; // 文件名
+                            link.setAttribute('download', item.name); // 让浏览器下载文件
+                            li.appendChild(link);
+                            resourceList.appendChild(li);
+                        }
+                    });
+
+                    // 显示资源列表
+                    document.getElementById('resource-list').style.display = 'block';
+                })
+                .catch(error => {
+                    console.error('Error fetching resources:', error);
+                });
+        }
+    </script>
+
 </body>
 </html>
