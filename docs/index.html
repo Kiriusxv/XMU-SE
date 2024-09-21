@@ -97,6 +97,18 @@
         <ul id="resource-links"></ul>
     </div>
 
+    <!-- "关于我们" 内容区域 -->
+    <div class="container about-container" id="about-section" style="display: none;">
+        <h2>关于我们</h2>
+        <p>该网站是厦门大学软件工程资源库，为厦门大学软件工程专业学生提供课程资源共享。所有资源由学生自主提供和管理，旨在促进学习和交流，严禁商用。</p>
+        <p>欢迎补充、维护、更新网站资源</p>
+        <p>该共享仓库系二O二四年九月由厦门大学软件工程系学生自主建立，旨在为学弟学妹提供学习资源，以便不时之需</p>
+        <h3>开发者信息</h3>
+        <p>开发者：Kiriusxv<br>
+           邮箱：1337127972@qq.com<br>
+           GitHub: <a href="https://github.com/Kiriusxv">Kirius</a></p>
+    </div>    
+
     <section class="slider">
         <div class="callbacks_container">
             <ul class="rslides" id="slider">
@@ -219,6 +231,26 @@
 
 
     </script>
+
+     <!-- JavaScript: 切换“关于我们”部分的显示和隐藏 -->
+     <script>
+        function toggleAbout() {
+            const aboutSection = document.getElementById('about-section');
+            console.log("Toggling about section"); // 用于调试，确认函数是否执行
+            if (aboutSection.style.display === 'none' || aboutSection.style.display === '') {
+                aboutSection.style.display = 'block'; // 显示
+            } else {
+                aboutSection.style.display = 'none'; // 隐藏
+            }
+        }
+    </script>
+    <script type="text/javascript">
+        document.addEventListener("DOMContentLoaded", function() {
+            // 在此处绑定你的事件，确保 HTML 元素已经加载完成
+            document.querySelector('[href="#about"]').addEventListener('click', toggleAbout);
+        });
+    </script>
+    
 
 </body>
 </html>
