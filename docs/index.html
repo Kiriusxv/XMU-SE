@@ -166,30 +166,36 @@
     <!-- 添加的 JavaScript -->
     <script>
         function fetchResources(course, path = '') {
-    const username = 'Kirius'; // 替换为你的 GitHub 用户名
-    const repo = 'XMU-SE'; // 替换为你的 GitHub 仓库名
-    const folderPath = path ? path : `resources/${course}`; // 使用传递的路径或者根据课程生成路径
-
-    const apiURL = `https://api.github.com/repos/${username}/${repo}/contents/${folderPath}`;
+    if (!course) {
+        console.error('Course is not defined');
+        return;
+    }
 
     // 更新标题
     document.getElementById('resource-title').innerText = `${course} 资源列表`;
+
+    const username = 'Kiriusxv'; // 替换为你的 GitHub 用户名
+    const repo = 'XMU-SE'; // 替换为你的 GitHub 仓库名
+    const branch = 'Kirius'; // 指定要访问的分支
+    const folderPath = encodeURIComponent(path ? path : `resources/${course}`); // 使用传递的路径或者根据课程生成路径
+
+    // 指定分支
+    const apiURL = `https://api.github.com/repos/${username}/${repo}/contents/${folderPath}?ref=${branch}`;
+    
+    console.log(`Fetching from: ${apiURL}`); // 打印生成的 URL 用于调试
 
     // 清空现有资源列表
     const resourceList = document.getElementById('resource-links');
     resourceList.innerHTML = '';
 
-    // 获取 GitHub 上的文件列表
     fetch(apiURL)
         .then(response => {
-            console.log("API Response: ", response); // 打印 API 响应
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
             return response.json();
         })
         .then(data => {
-            console.log("API Data: ", data); // 打印 JSON 数据
             if (data.length === 0) {
                 resourceList.innerHTML = '<li>没有找到资源。</li>';
             } else {
@@ -197,22 +203,20 @@
                     const li = document.createElement('li');
 
                     if (item.type === 'dir') {
-                        // 生成文件夹链接，点击后请求该文件夹的内容
                         const folderLink = document.createElement('a');
                         folderLink.href = '#';
                         folderLink.textContent = `[文件夹] ${item.name}`;
                         folderLink.onclick = () => {
-                            fetchResources(course, item.path); // 加载文件夹内的内容
-                            return false; // 防止默认行为
+                            fetchResources(course, item.path);
+                            return false;
                         };
                         li.appendChild(folderLink);
                     } else if (item.type === 'file') {
-                        // 生成下载链接
                         const rawURL = `https://raw.githubusercontent.com/${username}/${repo}/Kirius/${item.path}`;
                         const fileLink = document.createElement('a');
                         fileLink.href = rawURL;
-                        fileLink.textContent = item.name; // 文件名
-                        fileLink.setAttribute('download', item.name); // 让浏览器下载文件
+                        fileLink.textContent = item.name;
+                        fileLink.setAttribute('download', item.name);
                         li.appendChild(fileLink);
                     }
 

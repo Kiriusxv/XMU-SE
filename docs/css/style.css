@@ -116,7 +116,7 @@
 
 /* 为整个页面设置背景图片 */
 body {
-    background-image: url('../images/鲨鱼娘.jpg');
+    background-image: url('../images/shark.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
