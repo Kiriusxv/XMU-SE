@@ -2,14 +2,13 @@
 <html lang="en">
 <head>
     <title>厦门大学软件工程资源库</title>
-    <!-- Meta tag Keywords -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8">
     <meta name="keywords" content="厦大软工" />
     <link rel="stylesheet" href="css/bootstrap.css">
-    <link rel="stylesheet" href="css/style.css" type="text/css" media="all" /> 
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="all" />
     <style>
-		/* 列表项的样式 */
+        /* 列表项的样式 */
         #resource-links li {
             background-color: #87CEEB; /* 天蓝色背景 */
             color: #ffffff; /* 白色字体 */
@@ -29,21 +28,25 @@
         #resource-links li a:hover {
             text-decoration: underline; /* 悬停时显示下划线 */
         }
-        /* 样式部分 */
+
         .resource-list {
             display: none;
             margin-top: 20px;
         }
+
         .resource-list ul {
             list-style-type: none;
         }
+
         .resource-list ul li {
             margin: 10px 0;
         }
+
         .resource-list ul li a {
             color: #3498db;
             text-decoration: none;
         }
+
         .resource-list ul li a:hover {
             text-decoration: underline;
         }
@@ -69,11 +72,11 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right custom-nav">
                     <li><a class="hvr-underline-from-center active" href="index.html">首页</a></li>
-                    <li><a href="#notify" class="hvr-underline-from-center scroll">通知公告</a></li>
-
-                    <!-- 下拉菜单 -->
+                    <li><a href="#notify-section" class="hvr-underline-from-center scroll">通知公告</a></li>
                     <li class="dropdown">
-                        <a href="#" class="coursesourse" data-toggle="dropdown"><span data-hover="dropdown">课程资源</span><span class="caret"></span></a>
+                        <a href="#" class="coursesourse" data-toggle="dropdown">
+                            <span data-hover="dropdown">课程资源</span><span class="caret"></span>
+                        </a>
                         <ul class="dropdown-menu">
                             <li><a href="#" onclick="fetchResources('公共基本课程')">公共基本课程</a></li>
                             <li><a href="#" onclick="fetchResources('学科通修课程')">学科通修课程</a></li>
@@ -83,11 +86,10 @@
                     </li>
                     <li><a href="#database" class="hvr-underline-from-center scroll">数据库</a></li>
                     <li><a href="#paolu" class="hvr-underline-from-center scroll">转专业板块</a></li>
-                    <li><a href="#about" class="hvr-underline-from-center scroll">关于</a></li>
+                    <li><a href="#about-section" class="hvr-underline-from-center scroll">关于</a></li>
                 </ul>
             </div>
-
-            <div class="clearfix"> </div>    
+            <div class="clearfix"></div>
         </nav>
     </div>
 
@@ -95,6 +97,24 @@
     <div class="container resource-list" id="resource-list">
         <h2 id="resource-title"></h2>
         <ul id="resource-links"></ul>
+    </div>
+
+    <!-- 通知公告 -->
+    <div class="container notify-section" id="notify-section" style="display: none;">
+        <h2>通知</h2>
+        <p>暂无</p>
+    </div>
+
+    <!-- 数据库 -->
+    <div class="container database" id="database" style="display: none;">
+        <h2>数据库</h2>
+        <p></p>
+    </div>
+
+    <!-- 转专业 -->
+    <div class="container paolu" id="paolu" style="display: none;">
+        <h2>转专业资源</h2>
+        <p>预计搬一些转专业经验</p>
     </div>
 
     <!-- "关于我们" 内容区域 -->
@@ -107,7 +127,7 @@
         <p>开发者：Kiriusxv<br>
            邮箱：1337127972@qq.com<br>
            GitHub: <a href="https://github.com/Kiriusxv">Kirius</a></p>
-    </div>    
+    </div>
 
     <section class="slider">
         <div class="callbacks_container">
@@ -163,98 +183,94 @@
     <script type="text/javascript" src="js/bootstrap.js"></script>
     <script src="js/myself.js"></script>
 
-    <!-- 添加的 JavaScript -->
     <script>
         function fetchResources(course, path = '') {
-    if (!course) {
-        console.error('Course is not defined');
-        return;
-    }
-
-    // 更新标题
-    document.getElementById('resource-title').innerText = `${course} 资源列表`;
-
-    const username = 'Kiriusxv'; // 替换为你的 GitHub 用户名
-    const repo = 'XMU-SE'; // 替换为你的 GitHub 仓库名
-    const branch = 'Kirius'; // 指定要访问的分支
-    const folderPath = encodeURIComponent(path ? path : `resources/${course}`); // 使用传递的路径或者根据课程生成路径
-
-    // 指定分支
-    const apiURL = `https://api.github.com/repos/${username}/${repo}/contents/${folderPath}?ref=${branch}`;
-    
-    console.log(`Fetching from: ${apiURL}`); // 打印生成的 URL 用于调试
-
-    // 清空现有资源列表
-    const resourceList = document.getElementById('resource-links');
-    resourceList.innerHTML = '';
-
-    fetch(apiURL)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
+            if (!course) {
+                console.error('Course is not defined');
+                return;
             }
-            return response.json();
-        })
-        .then(data => {
-            if (data.length === 0) {
-                resourceList.innerHTML = '<li>没有找到资源。</li>';
-            } else {
-                data.forEach(item => {
-                    const li = document.createElement('li');
-
-                    if (item.type === 'dir') {
-                        const folderLink = document.createElement('a');
-                        folderLink.href = '#';
-                        folderLink.textContent = `[文件夹] ${item.name}`;
-                        folderLink.onclick = () => {
-                            fetchResources(course, item.path);
-                            return false;
-                        };
-                        li.appendChild(folderLink);
-                    } else if (item.type === 'file') {
-                        const rawURL = `https://raw.githubusercontent.com/${username}/${repo}/Kirius/${item.path}`;
-                        const fileLink = document.createElement('a');
-                        fileLink.href = rawURL;
-                        fileLink.textContent = item.name;
-                        fileLink.setAttribute('download', item.name);
-                        li.appendChild(fileLink);
+    
+            document.getElementById('resource-title').innerText = `${course} 资源列表`;
+    
+            const username = 'Kiriusxv';
+            const repo = 'XMU-SE';
+            const branch = 'Kirius';
+            const folderPath = encodeURIComponent(path ? path : `resources/${course}`);
+            const apiURL = `https://api.github.com/repos/${username}/${repo}/contents/${folderPath}?ref=${branch}`;
+            
+            console.log(`Fetching from: ${apiURL}`);
+    
+            const resourceList = document.getElementById('resource-links');
+            resourceList.innerHTML = '';
+    
+            fetch(apiURL)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
                     }
-
-                    resourceList.appendChild(li);
+                    return response.json();
+                })
+                .then(data => {
+                    if (data.length === 0) {
+                        resourceList.innerHTML = '<li>没有找到资源。</li>';
+                    } else {
+                        data.forEach(item => {
+                            const li = document.createElement('li');
+                            if (item.type === 'dir') {
+                                const folderLink = document.createElement('a');
+                                folderLink.href = '#';
+                                folderLink.textContent = `[文件夹] ${item.name}`;
+                                folderLink.onclick = () => {
+                                    fetchResources(course, item.path);
+                                    return false;
+                                };
+                                li.appendChild(folderLink);
+                            } else if (item.type === 'file') {
+                                const rawURL = `https://raw.githubusercontent.com/${username}/${repo}/Kirius/${item.path}`;
+                                const fileLink = document.createElement('a');
+                                fileLink.href = rawURL;
+                                fileLink.textContent = item.name;
+                                fileLink.setAttribute('download', item.name);
+                                li.appendChild(fileLink);
+                            }
+                            resourceList.appendChild(li);
+                        });
+                    }
+                    document.getElementById('resource-list').style.display = 'block';
+                })
+                .catch(error => {
+                    console.error('Error fetching resources:', error);
+                    resourceList.innerHTML = '<li>资源加载失败，请稍后重试。</li>';
                 });
-            }
-
-            // 显示资源列表
-            document.getElementById('resource-list').style.display = 'block';
-        })
-        .catch(error => {
-            console.error('Error fetching resources:', error);
-            resourceList.innerHTML = '<li>资源加载失败，请稍后重试。</li>';
-        });
-}
-
-
-    </script>
-
-     <!-- JavaScript: 切换“关于我们”部分的显示和隐藏 -->
-     <script>
-        function toggleAbout() {
-            const aboutSection = document.getElementById('about-section');
-            console.log("Toggling about section"); // 用于调试，确认函数是否执行
-            if (aboutSection.style.display === 'none' || aboutSection.style.display === '') {
-                aboutSection.style.display = 'block'; // 显示
-            } else {
-                aboutSection.style.display = 'none'; // 隐藏
-            }
         }
-    </script>
-    <script type="text/javascript">
+    
         document.addEventListener("DOMContentLoaded", function() {
-            // 在此处绑定你的事件，确保 HTML 元素已经加载完成
-            document.querySelector('[href="#about"]').addEventListener('click', toggleAbout);
+            document.querySelectorAll('.nav a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(event) {
+                    event.preventDefault();
+    
+                    // 隐藏所有部分
+                    document.getElementById('resource-list').style.display = 'none';
+                    document.getElementById('paolu').style.display = 'none';
+                    document.getElementById('about-section').style.display = 'none';
+                    document.getElementById('database').style.display = 'none';
+                    document.getElementById('notify-section').style.display = 'none';
+                    // 隐藏公告部分
+                    document.querySelector('.slider').style.display = 'none';
+    
+                    // 显示相应部分
+                    const targetId = this.getAttribute('href').substring(1); // 去掉开头的 #
+                    const targetElement = document.getElementById(targetId);
+                    if (targetElement) {
+                        targetElement.style.display = 'block';
+                    }
+                });
+            });
+    
+            // 默认显示资源列表
+            document.getElementById('resource-list').style.display = 'block';
         });
     </script>
     
-
 </body>
 </html>
